@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "BackEndBegin",
+  "builds": [
+    {"src": "src/index.ts", "use": "@vercel/node"}
+  ],
+  "route": [
+    {"src": "/(.*)", "dest": "src/index.ts"}
+  ]
+}
