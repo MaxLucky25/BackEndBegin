@@ -13,6 +13,9 @@ app.use(jsonBodyMiddleware)
 const parserMiddleWear = bodyParser({});
 app.use(parserMiddleWear)
 
+app.get("/",(req, res)=>{
+    res.send("Hello World!");
+})
 app.use("/products",productsRouters);
 app.use("/addresses",addressesRouters);
 
