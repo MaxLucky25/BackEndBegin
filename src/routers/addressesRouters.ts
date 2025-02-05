@@ -1,16 +1,19 @@
-import {Router} from "express";
+import {Router,Request,Response} from "express";
+import {addressesRepository} from "../repositories/addreses-repository";
 
-const adresses= [{id:1, title:"Nezalejnasti 12"},{id:2, title:"Selickogo 11"}];
+
 
 export const addressesRouters = Router()
 
-addressesRouters.get("/",(req, res)=>{
-    res.send(adresses);
+addressesRouters.get("/",(req: Request,res: Response)=>{
+    const foundAddresses = addressesRepository.findAddresses(
+        req.query.title ?.toString());
+    res.send(foundAddresses);
 })
-addressesRouters.get("/:id",(req, res)=>{
-    let address =adresses.find(p => p.id === +req.params.id)
-    if(address){
-        res.send(address);
+addressesRouters.get("/:id",(req: Request,res: Response)=>{
+    let foundAddressesById  =addressesRepository.findAddressesById(+req.params.id)
+    if(foundAddressesById){
+        res.send(foundAddressesById);
     }else{
         res.send(404);
     }
