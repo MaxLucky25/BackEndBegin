@@ -1,6 +1,7 @@
 import {Router, Request, Response} from "express";
-import {productsRepository, ProductType} from "../repositories/products-db-repository";
+import {productsRepository} from "../repositories/products-db-repository";
 import {imputValidationMiddleware, validateTitleMiddleware} from "../middleware/imput-validation-middleware";
+import { ProductType } from "../repositories/db";
 
 
 
